@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Femme | Moda Feminina & Estilo</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2b2b2b;
+            --accent-color: #c59b27;
+            --accent-hover: #a8821f;
+            --bg-light: #fcfbfa;
+            --card-bg: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #666666;
+            --border-color: #eee9e0;
+            --badge-bg: #e63946;
+            --success-color: #2a9d8f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- TOP BAR & HEADER --- */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: #fff;
+            font-size: 0.8rem;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: var(--accent-color);
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+
+        .header-icons a {
+            color: var(--text-main);
+            transition: color 0.3s;
+        }
+
+        .header-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO BANNER --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 35px;
+            background-color: var(--accent-color);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+
+        /* --- CATALOG GRID --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- PRODUCT CARD --- */
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            position: relative;
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--badge-bg);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+
+        .product-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .product-description {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            min-height: 40px;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .original-price {
+            font-size: 0.9rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .current-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Coupon Field within Card */
+        .coupon-box {
+            background-color: var(--bg-light);
+            border: 1px dashed var(--accent-color);
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .coupon-box label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .coupon-input-group {
+            display: flex;
+            gap: 5px;
+        }
+
+        .coupon-input-group input {
+            flex: 1;
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .coupon-input-group button {
+            padding: 6px 12px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .coupon-input-group button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .coupon-message {
+            font-size: 0.75rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .coupon-message.success {
+            color: var(--success-color);
+            display: block;
+        }
+
+        .coupon-message.error {
+            color: var(--badge-bg);
+            display: block;
+        }
+
+        .btn-cart {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-cart:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* --- CEP CALCULATOR SECTION --- */
+        .shipping-section {
+            background-color: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 60px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .shipping-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .shipping-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .shipping-form input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .shipping-form button {
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .shipping-form button:hover {
+            background-color: var(--accent-color);
+        }
+
+        .shipping-result {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            display: none;
+            font-size: 0.9rem;
+        }
+
+        .shipping-option {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        /* --- INSTAGRAM GALLERY SECTION --- */
+        .insta-section {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .insta-item {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .insta-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .insta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-decoration: none;
+        }
+
+        .insta-item:hover .insta-overlay {
+            opacity: 1;
+        }
+
+        .insta-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* --- FLOATING WHATSAPP BUTTON --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            padding: 50px 20px 20px 20px;
+            margin-top: 80px;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #aaa;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .shipping-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div><i class="fa-solid fa-truck"></i> Frete Grátis para compras acima de R$ 299</div>
+        <div>
+            Siga-nos: 
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i> @aurafemme</a>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Aura <span>Femme</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="#lancamentos">Lançamentos</a></li>
+                <li><a href="#colecao">Coleção</a></li>
+                <li><a href="#vestidos">Vestidos</a></li>
+                <li><a href="#promocoes">Promoções</a></li>
+            </ul>
+
+            <div class="header-icons">
+                <a href="#" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="https://instagram.com" target="_blank" title="Siga no Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Carrinho de Compras"><i class="fa-solid fa-bag-shopping"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero">
+        <div class="hero-content">
+            <p>Nova Coleção 2026</p>
+            <h1>Elegância em Cada Detalhe</h1>
+            <a href="#catalogo" class="btn-primary">Ver Coleção</a>
+        </div>
+    </section>
+
+    <!-- MAIN CATALOG CONTAINER -->
+    <main class="container" id="catalogo">
+        <div class="section-title">
+            <h2>Peças em Destaque</h2>
+            <p>Design moderno com caimento perfeito para todas as ocasiões</p>
+        </div>
+
+        <!-- PRODUCT GRID -->
+        <div class="product-grid">
+
+            <!-- PRODUCT 1 -->
+            <div class="product-card" id="card-1">
+                <div class="product-image">
+                    <span class="badge">Novo</span>
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80" alt="Vestido Midi Linho">
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">Vestido Midi de Linho Premium</h3>
+                    <p class="product-description">Vestido de linho leve com decote em V e cinto regulável. Conforto e sofisticação para os dias quentes.</p>
+                    
+                    <div class="price-container">
+                        <span class="original-price">R$ 289,00</span>
+                        <span class="current-price" id="price-1">R$ 219,00</span>
+                    </div>
+
+                    <!-- Coupon Input Space -->
+                    <div class="coupon-box">
+                        <label for="coupon-input-1"><i class="fa-solid fa-ticket"></i> Cupom de Desconto</label>
+                        <div class="coupon-input-group">
+                            <input type="text" id="coupon-input-1" placeholder="Ex: FEMME10">
+                            <button onclick="applyCoupon(1, 219.00)">Aplicar</button>
+                        </div>
+                        <div class="coupon-message" id="coupon-msg-1"></div>
+                    </div>
+
+                    <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT 2 -->
+            <div class="product-card" id="card-2">
+                <div class="product-image">
+                    <span class="badge" style="background-color: var(--accent-color);">15% OFF</span>
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Blazer Alfaiataria">
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">Blazer Alfaiataria Oversized</h3>
+                    <p class="product-description">Corte impecável em tecido estruturado. Versátil para composições casuais ou corporativas.</p>
+                    
+                    <div class="price-container">
+                        <span class="original-price">R$ 349,00</span>
+                        <span class="current-price" id="price-2">R$ 296,65</span>
+                    </div>
+
+                    <!-- Coupon Input Space -->
+                    <div class="coupon-box">
+                        <label for="coupon-input-2"><i class="fa-solid fa-ticket"></i> Cupom de Desconto</label>
+                        <div class="coupon-input-group">
+                            <input type="text" id="coupon-input-2" placeholder="Ex: FEMME10">
+                            <button onclick="applyCoupon(2, 296.65)">Aplicar</button>
+                        </div>
+                        <div class="coupon-message" id="coupon-msg-2"></div>
+                    </div>
+
+                    <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT 3 -->
+            <div class="product-card" id="card-3">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=800&q=80" alt="Camisa de Seda">
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">Camisa Satin Touch Soft</h3>
+                    <p class="product-description">Toque acetinado com acabamento suave. Botões perolizados e punhos estruturados.</p>
+                    
+                    <div class="price-container">
+                        <span class="current-price" id="price-3">R$ 179,90</span>
+                    </div>
+
+                    <!-- Coupon Input Space -->
+                    <div class="coupon-box">
+                        <label for="coupon-input-3"><i class="fa-solid fa-ticket"></i> Cupom de Desconto</label>
+                        <div class="coupon-input-group">
+                            <input type="text" id="coupon-input-3" placeholder="Ex: FEMME10">
+                            <button onclick="applyCoupon(3, 179.90)">Aplicar</button>
+                        </div>
+                        <div class="coupon-message" id="coupon-msg-3"></div>
+                    </div>
+
+                    <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+            <!-- PRODUCT 4 -->
+            <div class="product-card" id="card-4">
+                <div class="product-image">
+                    <span class="badge">Tendência</span>
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Saia Plissada">
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">Saia Plissada Fluida Elegant</h3>
+                    <p class="product-description">Cintura alta com elástico embutido. Movimento elegante e caimento fluído para o dia ou noite.</p>
+                    
+                    <div class="price-container">
+                        <span class="original-price">R$ 229,00</span>
+                        <span class="current-price" id="price-4">R$ 189,90</span>
+                    </div>
+
+                    <!-- Coupon Input Space -->
+                    <div class="coupon-box">
+                        <label for="coupon-input-4"><i class="fa-solid fa-ticket"></i> Cupom de Desconto</label>
+                        <div class="coupon-input-group">
+                            <input type="text" id="coupon-input-4" placeholder="Ex: FEMME10">
+                            <button onclick="applyCoupon(4, 189.90)">Aplicar</button>
+                        </div>
+                        <div class="coupon-message" id="coupon-msg-4"></div>
+                    </div>
+
+                    <button class="btn-cart"><i class="fa-solid fa-cart-plus"></i> Adicionar ao Carrinho</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SHIPPING CALCULATOR SECTION -->
+        <section class="shipping-section">
+            <div class="shipping-title">
+                <i class="fa-solid fa-truck-fast"></i>
+                <span>Calcule o Frete e Prazo de Entrega</span>
+            </div>
+            <div class="shipping-form">
+                <input type="text" id="cep-input" placeholder="Digite seu CEP (Ex: 20000-000)" maxlength="9">
+                <button onclick="calculateShipping()">Calcular Frete</button>
+            </div>
+            <div class="shipping-result" id="shipping-result">
+                <div class="shipping-option">
+                    <span><strong>PAC (Normal):</strong> 5 a 7 dias úteis</span>
+                    <span>R$ 18,90</span>
+                </div>
+                <div class="shipping-option">
+                    <span><strong>SEDEX (Expresso):</strong> 1 a 3 dias úteis</span>
+                    <span>R$ 32,50</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- INSTAGRAM INTEGRATION GALLERY -->
+        <section class="insta-section">
+            <div class="section-title">
+                <h2>Aura no Instagram</h2>
+                <p>Marque <strong>@aurafemme</strong> nas suas fotos e apareça no nosso feed</p>
+            </div>
+
+            <div class="insta-grid">
+                <div class="insta-item">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" alt="Insta Post 1">
+                    <a href="https://instagram.com" target="_blank" class="insta-overlay"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="insta-item">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=400&q=80" alt="Insta Post 2">
+                    <a href="https://instagram.com" target="_blank" class="insta-overlay"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="insta-item">
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=400&q=80" alt="Insta Post 3">
+                    <a href="https://instagram.com" target="_blank" class="insta-overlay"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+                <div class="insta-item">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=400&q=80" alt="Insta Post 4">
+                    <a href="https://instagram.com" target="_blank" class="insta-overlay"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FLOATING WHATSAPP ICON -->
+    <a href="https://wa.me/5521964211286?text=Ol%C3%A1!%20Gostaria%20de%20tirar%20d%C3%BAvidas%20sobre%20as%20pe%C3%A7as." 
+       class="whatsapp-float" 
+       target="_blank" 
+       title="Atendimento via WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Aura Femme</h3>
+                <p>Moda feminina contemporânea, desenhada para destacar sua autenticidade e beleza com elegância e conforto.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://pinterest.com" target="_blank" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Navegação</h3>
+                <a href="#lancamentos">Lançamentos</a>
+                <a href="#colecao">Coleção Completa</a>
+                <a href="#promocoes">Outlet & Ofertas</a>
+                <a href="#cep-input">Cálculo de Frete</a>
+            </div>
+            <div class="footer-col">
+                <h3>Atendimento</h3>
+                <p><i class="fa-solid fa-envelope"></i> contato@aurafemme.com.br</p>
+                <p><i class="fa-solid fa-phone"></i> (21) 99999-9999</p>
+                <p><i class="fa-solid fa-clock"></i> Seg a Sex: 09h às 18h</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Aura Femme Atelier. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // Valid Coupons database
+        const validCoupons = {
+            'FEMME10': 0.10, // 10% discount
+            'AURA15': 0.15,  // 15% discount
+            'BEMVINDA': 0.20 // 20% discount
+        };
+
+        // Applied coupons tracker per product
+        const appliedCoupons = {};
+
+        // Function to apply discount coupon per product card
+        function applyCoupon(productId, originalPrice) {
+            const inputField = document.getElementById(`coupon-input-${productId}`);
+            const msgBox = document.getElementById(`coupon-msg-${productId}`);
+            const priceElement = document.getElementById(`price-${productId}`);
+            const couponCode = inputField.value.trim().toUpperCase();
+
+            if (!couponCode) {
+                msgBox.textContent = "Digite um código de cupom.";
+                msgBox.className = "coupon-message error";
+                return;
+            }
+
+            if (appliedCoupons[productId]) {
+                msgBox.textContent = "Cupom já aplicado nesta peça!";
+                msgBox.className = "coupon-message error";
+                return;
+            }
+
+            if (validCoupons[couponCode]) {
+                const discountRate = validCoupons[couponCode];
+                const discountedPrice = originalPrice * (1 - discountRate);
+                
+                priceElement.textContent = `R$ ${discountedPrice.toFixed(2).replace('.', ',')}`;
+                msgBox.textContent = `Cupom '${couponCode}' aplicado (${discountRate * 100}% OFF)!`;
+                msgBox.className = "coupon-message success";
+                
+                appliedCoupons[productId] = true;
+                inputField.disabled = true;
+            } else {
+                msgBox.textContent = "Cupom inválido ou expirado.";
+                msgBox.className = "coupon-message error";
+            }
+        }
+
+        // Automatic Formatting for CEP Input (e.g., 00000-000)
+        document.getElementById('cep-input').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 5) {
+                value = value.substring(0, 5) + '-' + value.substring(5, 8);
+            }
+            e.target.value = value;
+        });
+
+        // CEP Shipping Calculation Function
+        function calculateShipping() {
+            const cepInput = document.getElementById('cep-input').value.trim();
+            const resultBox = document.getElementById('shipping-result');
+
+            if (cepInput.length < 9) {
+                alert('Por favor, informe um CEP válido com 8 dígitos.');
+                return;
+            }
+
+            // Simulate calculation response
+            resultBox.style.display = 'block';
+            resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    </script>
+</body>
+</html>
